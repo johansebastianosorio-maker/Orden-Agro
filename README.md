@@ -250,3 +250,4 @@ Abrir esta carpeta en VS Code con la extensión de Claude Code y pedirle,
 módulo por módulo, las funcionalidades que falten (por ejemplo: reportes por
 rango de fechas, múltiples fincas, o la migración a Supabase del punto 2).
 # Orden-Agro
+# Orden-Agro
