@@ -251,3 +251,4 @@ módulo por módulo, las funcionalidades que falten (por ejemplo: reportes por
 rango de fechas, múltiples fincas, o la migración a Supabase del punto 2).
 # Orden-Agro
 # Orden-Agro
+# Orden-Agro
