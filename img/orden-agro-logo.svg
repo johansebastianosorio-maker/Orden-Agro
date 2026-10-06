@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 248" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Orden Agro</title>
+  <desc id="descripcion">Logo de Orden Agro, gestión inteligente del campo.</desc>
+  <defs>
+    <linearGradient id="hoja" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#79C54C"/>
+      <stop offset="1" stop-color="#329B66"/>
+    </linearGradient>
+    <linearGradient id="azul" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#90BDE2"/>
+      <stop offset="1" stop-color="#486F84"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(100 8)">
+    <path d="M41 119A55 55 0 0 1 23 60" fill="none" stroke="url(#azul)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M23 60l-2 23 20-13" fill="#728E9A"/>
+    <path d="M47 126h16V99h13v27h13V86h13v40h12V72h13v54h12" fill="none" stroke="#173F46" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M67 120c-1-20-9-39-24-51-10-8-22-12-35-12 1 16 6 31 17 43 11 12 26 18 42 20Z" fill="url(#hoja)"/>
+    <path d="M67 120c0-30 7-59 25-80C107 22 126 13 150 9c-2 25-9 49-24 68-15 20-35 34-59 43Z" fill="url(#hoja)"/>
+    <path d="M66 124c0-40 14-72 47-101" fill="none" stroke="#1C7558" stroke-width="7" stroke-linecap="round"/>
+    <path d="M65 112C55 91 42 77 25 68" fill="none" stroke="#1C7558" stroke-width="5" stroke-linecap="round"/>
+    <path d="M99 54 158 2m-1 1-22 3m22-3-3 21" fill="none" stroke="#778F9E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M122 35v-9m0 0c-5-6-14 1-8 5l8 4c6 4-2 12-8 6m8-15v-5m0 20v5" fill="none" stroke="#415C6A" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M61 128h81" stroke="#173F46" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="180" y="190" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-1.7">
+    <tspan fill="#173F46">Orden </tspan><tspan fill="#71864B">Agro</tspan>
+  </text>
+  <text x="180" y="222" text-anchor="middle" fill="#263C47" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing=".1">Gestión Inteligente del Campo</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="titulo">
+  <title id="titulo">Isotipo de Orden Agro</title>
+  <defs>
+    <linearGradient id="hoja" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#79C54C"/>
+      <stop offset="1" stop-color="#329B66"/>
+    </linearGradient>
+    <linearGradient id="azul" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#90BDE2"/>
+      <stop offset="1" stop-color="#486F84"/>
+    </linearGradient>
+  </defs>
+  <path d="M53 145A65 65 0 0 1 32 75" fill="none" stroke="url(#azul)" stroke-width="10" stroke-linecap="round"/>
+  <path d="m32 75-2 24 21-13" fill="#728E9A"/>
+  <path d="M49 150h20v-32h15v32h15V101h15v49h14V82h15v68h12" fill="none" stroke="#173F46" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M77 145c-1-25-11-47-29-62-12-10-26-15-41-15 1 19 8 36 21 51 13 14 30 22 49 26Z" fill="url(#hoja)"/>
+  <path d="M77 145c0-36 9-70 29-95 18-22 41-33 69-38-2 30-11 58-29 82-18 24-41 41-69 51Z" fill="url(#hoja)"/>
+  <path d="M76 148c0-48 17-86 56-120" fill="none" stroke="#1C7558" stroke-width="7" stroke-linecap="round"/>
+  <path d="M75 134C63 109 48 92 28 81" fill="none" stroke="#1C7558" stroke-width="5" stroke-linecap="round"/>
+  <path d="m116 63 52-58m-2 2-21 2m21-2-2 20" fill="none" stroke="#778F9E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M137 47v-9m0 0c-6-7-16 1-9 6l9 4c7 5-2 14-10 7m10-17v-6m0 23v5" fill="none" stroke="#415C6A" stroke-width="4" stroke-linecap="round"/>
+</svg>

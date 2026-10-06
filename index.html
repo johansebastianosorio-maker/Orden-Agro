@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Orden Agro — Gestión inteligente del campo</title>
+<meta name="theme-color" content="#F1F7F8" />
+<link rel="icon" type="image/svg+xml" href="img/orden-agro-icon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Autenticación y Registro -->
+  <div id="onboarding" class="onboarding hidden">
+    <div class="onboarding-panel" id="auth-panel">
+      <div class="auth-brand"><img src="img/orden-agro-logo.svg" alt="Orden Agro — Gestión inteligente del campo" /></div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tab-login">Iniciar Sesión</button>
+        <button type="button" class="auth-tab" id="tab-registro">Crear Cuenta</button>
+      </div>
+
+      <!-- Formulario Login -->
+      <form id="form-login">
+        <h1>Bienvenido de nuevo</h1>
+        <p class="onboarding-lead">Ingresa a tu entorno administrativo seguro.</p>
+        <label>Correo electrónico
+          <input type="email" name="email" required placeholder="tu@correo.com" />
+        </label>
+        <label>Contraseña
+          <input type="password" name="password" required placeholder="••••••••" />
+        </label>
+        <button type="submit" class="btn btn-primary" style="margin-top: 16px;">Ingresar</button>
+      </form>
+
+      <!-- Formulario Registro -->
+      <form id="form-registro" class="hidden">
+        <h1>Crea tu cuenta administradora</h1>
+        <p class="onboarding-lead">Configura tu perfil principal y el espacio de tu sistema productivo.</p>
+        <label>Tu nombre completo
+          <input type="text" name="nombre" required placeholder="Ej. Sebastián Osorio" />
+        </label>
+        <label>Nombre de la finca
+          <input type="text" name="finca_nombre" required placeholder="Ej. Finca La Esperanza" />
+        </label>
+        <label>Correo electrónico
+          <input type="email" name="email" required placeholder="tu@correo.com" />
+        </label>
+        <label>Contraseña
+          <input type="password" name="password" required minlength="6" placeholder="Mínimo 6 caracteres" />
+        </label>
+        
+        <label style="display:flex; gap:8px; align-items:flex-start; margin-top: 12px; font-size: 0.9rem; flex-direction: row; cursor: pointer;">
+          <input type="checkbox" name="privacidad" required style="margin-top: 4px; width: auto;" />
+          <span style="color: var(--soil-dark); line-height: 1.4;">Acepto las <a href="#" id="link-privacidad" style="color:var(--brand); text-decoration:underline;">Políticas de Privacidad y Tratamiento de Datos</a>, autorizando el cifrado de mi información.</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 16px;">Registrarse y configurar entorno</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shell principal -->
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img class="brand-sidebar-logo" src="img/orden-agro-logo.svg" alt="Orden Agro — Gestión inteligente del campo" />
+        <div class="brand-farm">
+          <p class="brand-name" id="brand-finca-nombre">Orden Agro</p>
+          <p class="brand-sub" id="brand-usuario-nombre">Usuario</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#dashboard" data-view="dashboard" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--brand)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          Panel general
+        </a>
+        <a href="#lotes" data-view="lotes" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--brand)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+          Mapas y lotes
+        </a>
+        <a href="#labores" data-view="labores" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--soil)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          Labores
+        </a>
+        <a href="#inventario" data-view="inventario" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--soil)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+          Bodega
+        </a>
+        <a href="#personal" data-view="personal" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--soil)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          Personal (M.O.)
+        </a>
+        <a href="#finanzas" data-view="finanzas" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--finance)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Gestión Admin
+        </a>
+        <a href="#archivo" data-view="archivo" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--finance)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+          Archivo
+        </a>
+        <a href="#produccion" data-view="produccion" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--brand)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"></path></svg>
+          Producción
+        </a>
+        <a href="#clima" data-view="clima" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--finance)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 15.5A4.5 4.5 0 0015.5 11H15a7 7 0 10-13.7 2M16 16l-2 3m-1-3l-2 3m-1-3l-2 3"></path></svg>
+          Clima
+        </a>
+        <a href="#sanidad" data-view="sanidad" class="nav-item">
+          <svg style="width:18px;height:18px;margin-right:4px;color:var(--rust)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0-1.414-1.414M7.05 7.05 5.636 5.636M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          Sanidad
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="btn-editar-finca" class="btn btn-ghost btn-small">Editar perfil de finca</button>
+        <button id="btn-exportar" class="btn btn-ghost btn-small">Exportar datos (.json)</button>
+        <button id="btn-reset" class="btn btn-ghost btn-small btn-danger">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <a href="#dashboard" class="mobile-brand" aria-label="Orden Agro — ir al resumen"><img src="img/orden-agro-logo.svg" alt="Orden Agro" /></a>
+        <h1 id="view-title">Panel general</h1>
+        <p id="view-subtitle" class="content-subtitle"></p>
+      </header>
+      <section id="view-mount" class="view-mount"></section>
+    </main>
+
+    <nav class="bottom-tabbar">
+      <a href="#dashboard" data-view="dashboard" class="tab-item">
+        <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        <span>Panel</span>
+      </a>
+      <a href="#lotes" data-view="lotes" class="tab-item">
+        <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+        <span>Mapas</span>
+      </a>
+      <a href="#labores" data-view="labores" class="tab-item">
+        <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span>Labores</span>
+      </a>
+      <a href="#inventario" data-view="inventario" class="tab-item">
+        <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+        <span>Bodega</span>
+      </a>
+      <button id="btn-mas" class="tab-item tab-item-btn">
+        <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <span>Más</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Contenedor de notificaciones -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
